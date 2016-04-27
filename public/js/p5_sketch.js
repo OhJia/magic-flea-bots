@@ -61,7 +61,7 @@ var densitySkipper = 3;
 
 
 var a;
-var z = 0;
+var counter = 0;
 var change = false;
 
 function preload() {
@@ -75,6 +75,7 @@ function preload() {
   attrImages[6] = loadImage("../media/like.jpg");
   attrImages[7] = loadImage("../media/dislike.jpg");
   attrImages[8] = loadImage("../media/love.jpg");
+  attrImages[9] = loadImage("../media/cloudy.jpg");
 
 }
 
@@ -86,17 +87,17 @@ function setup() {
 
   attractors=[];
   movers=[];
-  //attrImages[z].loadPixels();
+  //attrImages[counter].loadPixels();
 
   
-  //console.log(attrImages[z]);
+  //console.log(attrImages[counter]);
 
   // for (i = 0; i < width; i += densitySkipper) {
   //  for (j = 0; j < height; j += densitySkipper) {
   //   var pixelLoc = 4 * (i + (j * width));
 
 
-  //   if (attrImages[z].pixels[pixelLoc] > 0 && attrImages[z].pixels[pixelLoc] < 244) {
+  //   if (attrImages[counter].pixels[pixelLoc] > 0 && attrImages[counter].pixels[pixelLoc] < 244) {
   //    var loc = createVector(i, j);
   //    // console.log("loc: ", loc);
   //    a = new Attractor(loc);
@@ -105,7 +106,7 @@ function setup() {
   //   }
   //  }
   // }
-  // attrImages[z].updatePixels();
+  // attrImages[counter].updatePixels();
 
 
   for (i = 0; i < 1000; i++) {
@@ -118,21 +119,18 @@ function setup() {
  
 }
 
-function resetImage(z){
+function resetImage(counter){
   
   attractors=[];
   //movers=[];
-  attrImages[z].loadPixels();
-
-  
-  //console.log(attrImages[z]);
+  attrImages[counter].loadPixels();
 
   for (i = 0; i < width; i += densitySkipper) {
    for (j = 0; j < height; j += densitySkipper) {
     var pixelLoc = 4 * (i + (j * width));
 
 
-    if (attrImages[z].pixels[pixelLoc] > 0 && attrImages[z].pixels[pixelLoc] < 244) {
+    if (attrImages[counter].pixels[pixelLoc] > 0 && attrImages[counter].pixels[pixelLoc] < 244) {
      var loc = createVector(i, j);
      a = new Attractor(loc);
      attractors.push(a);
@@ -140,9 +138,7 @@ function resetImage(z){
     }
    }
   }
-  attrImages[z].updatePixels();
- 
- 
+  attrImages[counter].updatePixels(); 
 }
 
 
@@ -199,9 +195,6 @@ function mousePressed() {
       var distance = force.mag();
       distance = constrain(distance, 5.0, 10.0);
       force.normalize();
-      //console.log("distance: ", distance);
-      // var strength =  (distance) /(200 * movers[i].mass) ;
-      // force.mult(strength);
       force.mult(0.3);
       newMover.applyForce(force);
     }
@@ -213,41 +206,44 @@ function mousePressed() {
 
 function matchImage() {
 
- //console.log(z)
+ //console.log(counter)
   if (textToP5) {
     console.log ("textToP5", textToP5);
     switch (textToP5) {
       case "dog":
-        z = 0;
+        counter = 0;
         break;
       case "cat":
-        z = 1;
+        counter = 1;
         break;
       case "none":
-        z = 2;
+        counter = 2;
         break;
       case "happy":
-        z = 3;
+        counter = 3;
         break;
       case "sad":
-        z = 4;
+        counter = 4;
         break;
       case "fish":
-        z = 5;
+        counter = 5;
         break;
       case "like":
-        z = 6;
+        counter = 6;
         break;
       case "dislike":
-        z = 7;
+        counter = 7;
         break;
       case "love":
-        z = 8;
+        counter = 8;
+        break;
+      case "cloudy":
+        counter = 9;
         break;
       default:
         break;
     }
-  resetImage(z); 
+  resetImage(counter); 
     
  } 
 

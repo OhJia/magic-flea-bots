@@ -16,8 +16,8 @@
 - love
 
 + [*]how am i doing[*]
-- happy
-- sad
+- like
+- dislike
 
 + [*]how are you[*]
 - happy
@@ -26,6 +26,9 @@
 + [*]what do you think[*]
 - like
 - dislike
+
++ [*]weather[*]
+- cloudy
 
 + [*]do you like[*]
 - like
