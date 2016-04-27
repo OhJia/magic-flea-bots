@@ -4,27 +4,37 @@
 
 ! array cat = cat|cats
 ! array dog = dog|dogs
+! array faces = happy|sad
+! array opinion = like|dislike
 
 // if I comment this out, it works
 
 + [*]favorite animal[*]
-- cat
+- fish
 
 + [*]meaning of life[*]
-- dog
+- love
+
++ [*]how am i doing[*]
+- happy
+- sad
+
++ [*]how are you[*]
+- happy
+- sad
+
++ [*]what do you think[*]
+- like
+- dislike
+
++ [*]do you like[*]
+- like
+- dislike
 
 + *
 - none
 
-+ @cat {weight=3}
-- cat
 
-+ @dog {weight=3}
-- dog
-
-+ #
-% does not look valid try again
-- <call>getZipCode <star1></call>
 
 
 
