@@ -1,0 +1,50 @@
+// ----------------------------------------------------------------------------
+// MAGIC BUGS
+// ----------------------------------------------------------------------------
+
+! array cat = cat|cats
+! array dog = dog|dogs
+
+// if I comment this out, it works
+
++ [*]favorite animal[*]
+- cat
+
++ [*]meaning of life[*]
+- dog
+
++ *
+- none
+
++ @cat {weight=3}
+- cat
+
++ @dog {weight=3}
+- dog
+
++ #
+% does not look valid try again
+- <call>getZipCode <star1></call>
+
+
+
+> object callScript javascript
+  console.log("GETZIPCODE");
+  // Matches
+  if (args[0].match(/\d{5}/)) {
+    var zipcode = args[0].replace(/[^0-9]/mg, '');
+    console.log('zipcode: ', zipcode);
+    rs.setUservar(rs.currentUser(), 'zipcode', zipcode);
+    console.log('matched zip code');
+    this.saveZipCode(zipcode);
+    return 'Thanks! Last thing, sync your calendar so I can send you updates. ';
+  // Not match
+  } else {
+    console.log('not matching zip code')
+    return 'Heyy, that\'s not a valid zip code. Try again.';
+  }
+< object
+
+
+
+
