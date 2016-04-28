@@ -19,13 +19,13 @@ recognition.onresult = function (event) {
       //console.log(text); 
       $.post( "/keywords", {text: text}, function(data) {
       console.log(data); 
-      if (data && data.keyword) {
-        textToP5 = data.keyword;
-      } else {
-        textToP5 = null;
-      }
+        if (data && data.keyword) {
+          textToP5 = data.keyword;
+        } else {
+          textToP5 = null;
+        }
 
-    }, 'json');
+      }, 'json');
     }
   }
 }
@@ -76,6 +76,7 @@ function preload() {
   attrImages[7] = loadImage("../media/dislike.jpg");
   attrImages[8] = loadImage("../media/love.jpg");
   attrImages[9] = loadImage("../media/cloudy.jpg");
+  attrImages[10] = loadImage("../media/angry.jpg");
 
 }
 
@@ -239,6 +240,9 @@ function matchImage() {
         break;
       case "cloudy":
         counter = 9;
+        break;
+      case "angry":
+        counter = 10;
         break;
       default:
         break;

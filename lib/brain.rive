@@ -6,6 +6,7 @@
 ! array dog = dog|dogs
 ! array faces = happy|sad
 ! array opinion = like|dislike
+! array stupid = stupid|dumb|fuck
 
 // if I comment this out, it works
 
@@ -15,7 +16,7 @@
 + [*]meaning of life[*]
 - love
 
-+ [*]how am i doing[*]
++ [*]how am i[*]
 - like
 - dislike
 
@@ -33,6 +34,13 @@
 + [*]do you like[*]
 - like
 - dislike
+
++ [*]i am sorry[*]
+- happy
+
++ [*]stupid|dumb[*]
+- angry
+
 
 + *
 - none
